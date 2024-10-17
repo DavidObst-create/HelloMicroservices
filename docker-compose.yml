@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  
+    hellomicroservices:
+      image: ${DOCKER_REGISTRY-}hellomicroservices
+      build:
+        context: ./HelloMicroservices
+        dockerfile: HelloMicroservices/Dockerfile
+      ports:
+      - "5001:80"
+
+    orderprocessingservice:
+      image: orderprocessingservice
+      build:
+        context: ./OrderProcessingService
+        dockerfile: OrderProcessingService/Dockerfile
+      ports:
+      - "5002:80"
